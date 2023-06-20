@@ -1,0 +1,33 @@
+<div class="relative overflow-x-auto mt-4">
+  <div *ngIf="transactionList.length < 1;then content else other_content"></div>
+  <ng-template #content>
+    <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+      <span class="font-medium">Info alert!</span> You haven't made any transactions yet
+    </div>
+  </ng-template>
+  <ng-template #other_content>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr class="px-6 py-3">
+          <th class="px-6 py-3">transactionId</th>
+          <th class="px-6 py-3">Date</th>
+          <th class="px-6 py-3">Amount</th>          
+          <th class="px-6 py-3">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tx of transactionList; index as i" class="py-2" [ngClass]="{'text-rose-400': tx.transactionType == 'Credit', 'text-green-400' :tx.transactionType == 'Debit' }">
+          <td>{{ tx.transactionId }}</td>
+          <td>{{ tx.timestamp  | date:'short' }}</td>          
+          <td *ngIf="tx.transactionType == 'Credit'" class="text-rose-400">
+             -{{ tx.amount| currency : 'KES' : 'symbol' : '1.0-2' }}
+          </td>
+          <td *ngIf="tx.transactionType == 'Debit'" class="text-green-400">
+             +{{ tx.amount| currency : 'KES' : 'symbol' : '1.0-2' }}
+          </td>
+          <td>{{ tx.transactionType }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>

@@ -1,0 +1,22 @@
+<section class="landing">
+  <div class="max-w-sm rounded overflow-hidden bg-white p-3 shadow-lg">
+    <app-login *ngIf="!registerState" (newViewEvent)="toggleForms($event)"></app-login>
+    <app-register *ngIf="registerState" (newViewEvent)="toggleForms($event)"></app-register>
+  </div>
+</section>
+<section class="container py-4">
+  <div class="row align-items-center">
+    <div class="col-md-7">
+      <h1 class="inline-block mb-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+        Welcome to XYZ Bank - The Future of Banking
+      </h1>
+      <hr class="my-3">
+      <p>At XYZ Bank, we’re committed to providing you with a seamless and secure banking experience. Our
+        state-of-the-art digital platform allows you to manage your finances from anywhere, at any time.</p>
+
+    </div>
+    <div class="col-md-5">
+
+    </div>
+  </div>
+</section>

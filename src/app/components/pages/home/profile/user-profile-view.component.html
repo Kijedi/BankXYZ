@@ -1,0 +1,35 @@
+<div id="containerDiv">
+    <div id="profileDetailsDiv">
+        <h2>Profile Details</h2>
+    </div>
+    <div id="detailsDiv">
+        <div id="identifier">
+            <p>First Name:</p>
+            <p>Last Name:</p>
+            <p>Email Address:</p>
+            <p>Customer ID:</p>
+            <p>PIN</p>
+        </div>
+        <div id="userInfo">
+            <p>{{user.firstName}}</p>
+            <p>{{user.lastName}}</p>
+            <p>{{user.email}}</p>
+            <p>{{user.customerId}}</p>
+            <p>XXXX</p>
+
+        </div>
+        <div id="buttons">
+            <div id="emailButton" (click)="toggleEmailBox()">
+                <button mat-button id="changeEmail">Change Email</button>
+            </div>
+            <input *ngIf="showEmailBox" [(ngModel)]="email" type="text" (keyup.enter)="enterPressedonEmailInput()">
+
+
+            <div id="passwordButton" (click)="togglePasswordBox()">
+                <button mat-button id="changePassword">Change Password</button>
+            </div>
+            <input *ngIf="showPasswordBox" [(ngModel)]="password" type="password"
+                (keyup.enter)="enterPressedonPasswordInput()">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<form>
+  <h1 class="inline-block mb-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Welcome to XYZ bank</h1>
+  <h3> Login to proceed into your account</h3>
+  <hr class="m-2">
+  <div class="mb-3">
+    <label for="Email" class="form-label">Customer ID</label>
+    <input type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="Email" name="Email" [(ngModel)]="email" />
+  </div>
+  <div class="mb-3">
+    <label for="PIN" class="form-label">PIN</label>
+    <input type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="PIN" name="PIN" [(ngModel)]="pin" />
+  </div>
+  <div id="buttonGroup">
+    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full" id="signInButton" (click)="submitLogin()">
+      Login
+    </button>
+    <button type="button" class="btn btn-secondary text-blue-700" id="registerButton" (click)="toggleEventForm(true)">
+      Don't have an account? Register here
+    </button>
+  </div>
+  <div *ngIf="errorMessage" id="errorDiv">
+    <p>{{ errorMessage }}</p>
+  </div>
+</form>
